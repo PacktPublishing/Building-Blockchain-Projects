@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+   		<script src="./web3.min.js"></script>
+   		<script src="./hooked-web3-provider.min.js"></script>
+   		<script src="./ethereumjs-tx.js"></script>
+   		<script>
+			var provider = new HookedWeb3Provider({
+				host: "http://localhost:8545",
+				transaction_signer: {
+					hasAddress: function(address, callback){
+						callback(null, true);
+					},
+					signTransaction: function(tx_params, callback){
+						var rawTx = {
+					        gasPrice: web3.toHex(tx_params.gasPrice),
+					        gasLimit: web3.toHex(tx_params.gas),
+					        value: web3.toHex(tx_params.value),
+					        from: tx_params.from,
+					        to: tx_params.to,
+					        nonce: web3.toHex(tx_params.nonce)
+					    };
+
+						var privateKey = EthJS.Util.toBuffer('0x1a56e47492bf3df9c9563fa7f66e4e032c661de9d68c3f36f358e6bc9a9f69f2', 'hex');
+						var tx = new EthJS.Tx(rawTx);
+						tx.sign(privateKey);
+
+						callback(null, tx.serialize().toString('hex'));
+					}
+				}
+			});
+
+			var web3 = new Web3(provider);
+
+			web3.eth.sendTransaction({
+				from: "0xba6406ddf8817620393ab1310ab4d0c2deda714d",
+				to: "0x2bdbec0ccd70307a00c66de02789e394c2c7d549",
+				value: web3.toWei("0.1", "ether"),
+				gasPrice: "20000000000",
+				gas: "21000"
+			}, function(error, result){
+				console.log(error, result)
+			})
+   		</script>
+    </body>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<br>
+					<h2>Send Metacoins</h2>
+					<hr>
+					<form id="sendForm">
+						<div class="form-group">
+    						<label for="fromAddress">Select Account Address</label>
+    						<select class="form-control" id="fromAddress">
+    						</select>
+  						</div>
+  						<div class="form-group">
+    						<label for="amount">How much metacoin you want to send?</label>
+    						<input type="text" class="form-control" id="amount">
+  						</div>
+  						<div class="form-group">
+    						<label for="toAddress">Enter the address to which you want to send matacoins</label>
+    						<input type="text" class="form-control" id="toAddress" placeholder="Prefixed with 0x">
+  						</div>
+  						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<br>
+					<h2>Find Balance</h2>
+					<hr>
+					<form id="findBalanceForm">
+						<div class="form-group">
+    						<label for="address">Select Account Address</label>
+    						<select class="form-control" id="address">
+    						</select>
+  						</div>
+  						<button type="submit" class="btn btn-primary">Check Balance</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/app.js"></script>
+	</body>
+</html>

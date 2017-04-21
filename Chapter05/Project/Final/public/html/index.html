@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-6 offset-md-3">
+    				<br>
+    				<div class="alert alert-info" id="info" role="alert">
+  						Create or use your existing wallet.
+					</div>
+    				<form>
+					    <div class="form-group">
+					        <label for="seed">Enter 12-word seed</label>
+					        <input type="text" class="form-control" id="seed">
+					    </div>
+					    <button type="button" class="btn btn-primary" onclick="generate_addresses()">Generate Details</button>
+					    <button type="button" class="btn btn-primary" onclick="generate_seed()">Generate New Seed</button>
+					</form>
+					<hr>
+					<h2 class="text-xs-center">Address, Keys and Balances of the seed</h2>
+					<ol id="list">
+					</ol>
+					<hr>
+					<h2 class="text-xs-center">Send ether</h2>
+					<form>
+					    <div class="form-group">
+					        <label for="address1">From address</label>
+					        <input type="text" class="form-control" id="address1">
+					    </div>
+					    <div class="form-group">
+					        <label for="address2">To address</label>
+					        <input type="text" class="form-control" id="address2">
+					    </div>
+					    <div class="form-group">
+					        <label for="ether">Ether</label>
+					        <input type="text" class="form-control" id="ether">
+					    </div>
+					    <button type="button" class="btn btn-primary" onclick="send_ether()">Send Ether</button>
+					</form>
+    			</div>
+    		</div>
+    	</div>
+
+   		<script src="/js/web3.min.js"></script>
+   		<script src="/js/hooked-web3-provider.min.js"></script>
+    	<script src="/js/lightwallet.min.js"></script>
+    	<script src="/js/main.js"></script>
+    </body>
+</html>

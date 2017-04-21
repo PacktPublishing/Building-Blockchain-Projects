@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<body>
+		<script type="text/javascript" src="./web3.min.js"></script>
+		<script type="text/javascript" src="./truffle-contract.min.js"></script>
+		<script type="text/javascript">
+
+			var provider = new Web3.providers.HttpProvider("http://localhost:8545");
+			var web3 = new Web3(provider);
+
+			var SampleContract = TruffleContract({
+				abi: [{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"status","type":"string"}],"name":"ping","type":"event"}],
+				unlinked_binary: "6060604052341561000c57fe5b5b6000600060006000601793508373__StringLib__6394e8767d90916000604051602001526040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018082815260200191505060206040518083038186803b151561008b57fe5b60325a03f4151561009857fe5b5050506040518051905092507f31320000000000000000000000000000000000000000000000000000000000009150816000191673__StringLib__6381a33a6f90916000604051602001526040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180826000191660001916815260200191505060206040518083038186803b151561014557fe5b60325a03f4151561015257fe5b5050506040518051905090507f3adb191b3dee3c3ccbe8c657275f608902f13e3a020028b12c0d825510439e5660405180806020018281038252600f8152602001807f436f6e76657273696f6e20446f6e65000000000000000000000000000000000081525060200191505060405180910390a15b505050505b6033806101da6000396000f30060606040525bfe00a165627a7a7230582056ebda5c1e4ba935e5ad61a271ce8d59c95e0e4bca4ad20e7f07d804801e95c60029",
+				networks: {
+					1: {
+						links: {
+							"StringLib": "0xcca8353a18e7ab7b3d094ee1f9ddc91bdf2ca6a4"
+						},
+						events: {
+							"0x3adb191b3dee3c3ccbe8c657275f608902f13e3a020028b12c0d825510439e56": {
+								"anonymous": false,
+								"inputs": [
+									{
+										"indexed": false,
+										"name": "status",
+										"type": "string"
+									}
+								],
+								"name": "ping",
+								"type": "event"
+							}
+						}
+					},
+					10: {
+						events: {
+							"0x3adb191b3dee3c3ccbe8c657275f608902f13e3a020028b12c0d825510439e56": {
+								"anonymous": false,
+								"inputs": [
+									{
+										"indexed": false,
+										"name": "status",
+										"type": "string"
+									}
+								],
+								"name": "ping",
+								"type": "event"
+							}
+						}
+					}
+				},
+				contract_name: "SampleContract",
+			});
+
+			SampleContract.setProvider(provider);
+			SampleContract.detectNetwork();
+
+			SampleContract.defaults({
+				from: web3.eth.accounts[0],
+				gas: "900000",
+				gasPrice: web3.eth.gasPrice,
+			})
+
+			var StringLib = TruffleContract({
+				abi: [{"constant":true,"inputs":[{"name":"v","type":"bytes32"}],"name":"bytesToUInt","outputs":[{"name":"ret","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"v","type":"uint256"}],"name":"uintToBytes","outputs":[{"name":"ret","type":"bytes32"}],"payable":false,"type":"function"}],
+				unlinked_binary: "6060604052341561000c57fe5b5b6102178061001c6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806381a33a6f1461004657806394e8767d14610076575bfe5b6100606004808035600019169060200190919050506100aa565b6040518082815260200191505060405180910390f35b61008c6004808035906020019091905050610140565b60405180826000191660001916815260200191505060405180910390f35b6000600060006000600102846000191614156100c557610000565b600090505b60208110156101355760ff81601f0360080260020a85600190048115156100ed57fe5b0416915060008214156100ff57610135565b603082108061010e5750603982115b1561011857610000565b5b600a8302925060308203830192505b80806001019150506100ca565b8292505b5050919050565b60006000821415610173577f300000000000000000000000000000000000000000000000000000000000000090506101e2565b5b60008211156101e157610100816001900481151561018e57fe5b0460010290507f01000000000000000000000000000000000000000000000000000000000000006030600a848115156101c357fe5b06010260010281179050600a828115156101d957fe5b049150610174565b5b8090505b9190505600a165627a7a72305820d2897c98df4e1a3a71aefc5c486aed29c47c80cfe77e38328ef5f4cb5efcf2f10029",
+				networks: {
+					1: {
+						address: "0xcca8353a18e7ab7b3d094ee1f9ddc91bdf2ca6a4"
+					}
+				},
+				contract_name: "StringLib",
+			})
+
+
+			StringLib.setProvider(provider);
+			StringLib.detectNetwork();
+
+			StringLib.defaults({
+				from: web3.eth.accounts[0],
+				gas: "900000",
+				gasPrice: web3.eth.gasPrice,
+			})
+
+web3.version.getNetwork(function(err, network_id) {
+	if(network_id == 1)
+	{
+		var SampleContract_Instance = null;
+
+		SampleContract.new().then(function(instance){
+			SampleContract.networks[SampleContract.network_id]["address"] = instance.address;
+			SampleContract_Instance = instance;
+			
+			instance.ping(function(e, r){
+				console.log(e, r);
+			})
+		})
+	}
+	else if(network_id == 10)
+	{
+		var StringLib_Instance = null;
+		var SampleContract_Instance = null;
+
+		StringLib.new().then(function(instance){
+			StringLib_Instance = instance;
+		}).then(function(){
+			StringLib.networks[StringLib.network_id] = {};
+			StringLib.networks[StringLib.network_id]["address"] = StringLib_Instance.address;
+			SampleContract.link(StringLib);
+		}).then(function(result){
+			return SampleContract.new();
+		}).then(function(instance){
+			SampleContract.networks[SampleContract.network_id]["address"] = instance.address;
+			SampleContract_Instance = instance;
+			
+			instance.ping(function(e, r){
+				console.log(e, r);
+			})
+		})
+	}
+});
+
+			
+		</script>
+	</body>
+</html>

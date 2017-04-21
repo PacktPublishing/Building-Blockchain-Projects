@@ -1,0 +1,7 @@
+{
+	"name": "chapter5-building-blockchain-projects",
+	"dependencies": {
+		"express": "4.14.0",
+		"web3": "0.16.0"
+	}
+}

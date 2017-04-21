@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+		<div class="container">
+			<br>
+			<div class="row m-t-1">
+				<div class="col-md-12">
+					<a href="/">Home</a>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-inverse">
+  						<thead>
+    						<tr>
+    							<th>Match ID</th>
+    							<th>Start Time</th>
+      							<th>Home Team</th>
+      							<th>Away Team</th>
+      							<th>Winner</th>
+    						</tr>
+  						</thead>
+  						<tbody>
+  							<% for(var i=0; i < matches.length; i++) { %>
+  								<tr>
+  									<td><%= matches[i].dbid %></td>
+  									<% if (matches[i].start) { %>
+									   <td><%= matches[i].start %></td>
+									<% } else { %>
+										<td>Time not finalized</td>
+									<% } %>
+	      							<td><%= matches[i].homeTeam.name %></td>
+	      							<td><%= matches[i].awayTeam.name %></td>
+	      							<% if (matches[i].outcome) { %>
+									   <td><%= matches[i].outcome.winner %></td>
+									<% } else { %>
+										<td>Match not finished</td>
+									<% } %>
+	    						</tr>
+						    <% } %>
+  						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{
+	"name": "chapter6-writing-and-deploying-contracts",
+	"dependencies": {
+		"express": "4.14.0",
+		"web3": "0.16.0",
+		"solc": "0.4.8",
+		"bignumber.js": "4.0.0",
+		"ethereumjs-util": "5.0.1",
+		"ethereumjs-tx": "1.2.2"
+	}
+}

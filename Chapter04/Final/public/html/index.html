@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-xs-center">
+                    <br>
+                    <h3>Upload any file</h3>
+                    <br>
+                    <div>
+                        <div class="form-group">
+                            <label class="custom-file text-xs-left">
+                                <input type="file" id="file" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="owner">Enter owner name</label>
+                            <input type="text" class="form-control" id="owner">
+                        </div>
+                        <button onclick="submit()" class="btn btn-primary">Submit</button>
+                        <button onclick="getInfo()" class="btn btn-primary">Get Info</button> 
+                        <br><br>
+                        <div class="alert alert-info" role="alert" id="message">
+                            You can either submit file's details and get information about it.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-xs-center">
+                    <br>
+                    <h3>Live Transactions Mined</h3>
+                    <br>
+                    <ol id="events_list">No Transaction Found</ol>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/sha1.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/socket.io.min.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+    </body>
+</html>

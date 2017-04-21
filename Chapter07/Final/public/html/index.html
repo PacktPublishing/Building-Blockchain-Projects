@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <div class="row m-t-1">
+                <div class="col-md-12">
+                    <a href="/matches">Matches</a>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Deploy betting contract</h3>
+                    <form id="deploy">
+                        <div class="form-group">
+                            <label>From address: </label>
+                            <input type="text" class="form-control" id="fromAddress">
+                        </div>
+                        <div class="form-group">
+                            <label>Private Key: </label>
+                            <input type="text" class="form-control" id="privateKey">
+                        </div>
+                        <div class="form-group">
+                            <label>Match ID: </label>
+                            <input type="text" class="form-control" id="matchId">
+                        </div>
+                        <div class="form-group">
+                            <label>Bet Amount (in ether): </label>
+                            <input type="text" class="form-control" id="betAmount">
+                        </div>
+                        <p id="message" style="word-wrap: break-word"></p>
+                        <input type="submit" value="Deploy" class="btn btn-primary" />
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Bet on a contract</h3>
+                    <form id="bet">
+                        <div class="form-group">
+                            <label>From address: </label>
+                            <input type="text" class="form-control" id="fromAddress">
+                        </div>
+                        <div class="form-group">
+                            <label>Private Key: </label>
+                            <input type="text" class="form-control" id="privateKey">
+                        </div>
+                        <div class="form-group">
+                            <label>Contract Address: </label>
+                            <input type="text" class="form-control" id="contractAddress">
+                        </div>
+                        <div class="form-group">
+                            <label>Team: </label>
+                            <select class="form-control" id="team">
+                                <option>Home</option>
+                                <option>Away</option>
+                            </select>
+                        </div>
+                        <p id="message" style="word-wrap: break-word"></p>
+                        <input type="submit" value="Bet" class="btn btn-primary" />
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Display betting contract</h3>
+                    <form id="find">
+                        <div class="form-group">
+                            <label>Contract Address: </label>
+                            <input type="text" class="form-control" id="contractAddress">
+                        </div>
+                        <p id="message"></p>
+                        <input type="submit" value="Find" class="btn btn-primary" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/web3.min.js"></script>
+        <script type="text/javascript" src="/js/ethereumjs-tx.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+    </body>
+</html>
