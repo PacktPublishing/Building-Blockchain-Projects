@@ -1,4 +1,4 @@
-#Building Blockchain Projects
+# Building Blockchain Projects
 This is the code repository for [Building Blockchain Projects](https://www.packtpub.com/big-data-and-business-intelligence/building-blockchain-projects?utm_source=github&utm_medium=repository&utm_campaign=9781787122147), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the book from start to finish.
 ## About the Book
 This book will teach you what Blockchain is, how it maintains data integrity, and how to create real-world Blockchain projects using Ethereum. With interesting real-world projects, you will know learn how to write smart contracts which run exactly as programmed without any chance of fraud, censorship or third-party interference, and build end-to-end applications for Blockchain. You will learn concepts such as cryptography in cryptocurrencies, ether security, mining, smart contracts, and solidity.
@@ -22,12 +22,12 @@ for (var contractName in output.contracts) {
 
 You require Windows 7 SP1+, 8, 10 or Mac OS X 10.8+.
 
-##Related Products
+## Related Products
 * [Learn Nodejs by building 12 projects [Video]](https://www.packtpub.com/web-development/learn-nodejs-building-12-projects-video?utm_source=github&utm_medium=repository&utm_campaign=9781787122215)
 
 * [Building Machine Learning Projects with TensorFlow](https://www.packtpub.com/big-data-and-business-intelligence/building-machine-learning-projects-tensorflow?utm_source=github&utm_medium=repository&utm_campaign=9781786466587)
 
 * [Learn MeteorJS By Building 10 Real World Projects [Video]](https://www.packtpub.com/application-development/learn-meteorjs-building-10-real-world-projects-video?utm_source=github&utm_medium=repository&utm_campaign=9781787129726)
 
-###Suggestions and Feedback
+### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
