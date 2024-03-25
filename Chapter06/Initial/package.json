@@ -1,7 +1,7 @@
 {
 	"name": "chapter6-writing-and-deploying-contracts",
 	"dependencies": {
-		"express": "4.14.0",
+		"express": "4.19.2",
 		"web3": "0.16.0",
 		"solc": "0.4.8",
 		"bignumber.js": "4.0.0",
