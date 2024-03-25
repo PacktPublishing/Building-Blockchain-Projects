@@ -1,7 +1,7 @@
 {
 	"name": "chapter7",
 	"dependencies": {
-		"express": "4.14.0",
+		"express": "4.19.2",
 		"web3": "0.16.0",
 		"ejs": "2.5.6",
 		"request": "2.79.0",
